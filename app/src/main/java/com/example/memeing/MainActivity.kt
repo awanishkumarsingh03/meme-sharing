@@ -45,8 +45,8 @@ class MainActivity : AppCompatActivity() {
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, currentImageUrl,null,
             Response.Listener{ response ->
-                val url = response.getString("url");
-                Glide.with(this).load(url).listener(object : RequestListener<Drawable>{
+                currentImageUrl = response.getString("url");
+                Glide.with(this).load(currentImageUrl).listener(object : RequestListener<Drawable>{
                     override fun onResourceReady(
                         resource : Drawable? ,
                         model : Any? ,
@@ -83,7 +83,9 @@ class MainActivity : AppCompatActivity() {
 
     fun shareMeme(){
         val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
         intent.putExtra(Intent.EXTRA_TEXT,"Hey I have send you a meme " + currentImageUrl)
-        val chooser = Intent.createChooser(intent, "Share this meme using any of the appo")
+        val chooser = Intent.createChooser(intent, "Share this meme using any of the apps")
+        startActivity(chooser)
     }
 }
