@@ -20,6 +20,10 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 
+// Butter Knife
+// Glide with caching
+// Dagger 2
+
 class MainActivity : AppCompatActivity() {
     var currentImageUrl : String? = null
     override fun onCreate(savedInstanceState : Bundle?) {
